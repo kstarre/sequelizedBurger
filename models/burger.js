@@ -1,6 +1,15 @@
-const orm = require('../config/orm');
+module.exports = function(sequelize, DataTypes) {
+	let Burger = sequelize.define("Burger", {
+		burger_name: DataTypes.STRING,
+		devoured: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false
+		}
+	});
+	return Burger;
+};
 
-let burger = {
+/*let burger = {
 	selectAll: (cb) => {
 		orm.selectAll("burgers", res => {
 			cb(res);
@@ -16,6 +25,4 @@ let burger = {
 			cb(res);
 		});
 	}
-};
-
-module.exports = burger;
+};*/
